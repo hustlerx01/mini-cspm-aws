@@ -60,7 +60,7 @@ aws securityhub batch-import-findings --findings file://out/asff.json   # option
 - No pagination yet. Accounts with more than 100 users, policies or SGs will be under-scanned. Single region only.
 - 20 of the roughly 60 CIS controls. No CloudWatch metric-filter controls (CIS 4.x), Config, GuardDuty or Access Analyzer.
 - IAM-08 only checks `Action:"*"` + `Resource:"*"`. It misses `iam:*` and NotAction tricks.
-- `sandbox/main.tf` is untested (`terraform` isn't installed on the box).
+- `sandbox/main.tf` is untested (`terraform` isn't installed on my lab machine).
 
 ## Sources
 - CIS Amazon Web Services Foundations Benchmark v3.0 — https://www.cisecurity.org/benchmark/amazon_web_services
