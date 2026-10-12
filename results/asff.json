@@ -1,0 +1,431 @@
+[
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/IAM-02/root",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-IAM-02",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "CRITICAL",
+      "Normalized": 90
+    },
+    "Title": "CIS 1.5 MFA enabled for root user",
+    "Description": "MFA enabled for root user",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Enable hardware/virtual MFA on root."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "root",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/IAM-05/iam-user/alice",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-IAM-05",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "HIGH",
+      "Normalized": 70
+    },
+    "Title": "CIS 1.10 MFA for IAM users with console password",
+    "Description": "MFA for IAM users with console password",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Enable MFA for each console user."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "iam-user/alice",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/IAM-07/iam-user/alice",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-IAM-07",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "LOW",
+      "Normalized": 1
+    },
+    "Title": "CIS 1.15 IAM users get permissions only via groups (no attached/inline policies)",
+    "Description": "attached=1 inline=0",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Move user policies onto groups."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "iam-user/alice",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/IAM-08/arn:aws:iam::123456789012:policy/god",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-IAM-08",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "HIGH",
+      "Normalized": 70
+    },
+    "Title": "CIS 1.16 No customer policy grants full '*:*' admin",
+    "Description": "No customer policy grants full '*:*' admin",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Replace Action:* Resource:* with least-privilege statements."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "arn:aws:iam::123456789012:policy/god",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/S3-01/s3://ansar-lab-public",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-S3-01",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "HIGH",
+      "Normalized": 70
+    },
+    "Title": "CIS 2.1.4 S3 bucket Block Public Access fully enabled",
+    "Description": "S3 bucket Block Public Access fully enabled",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "aws s3api put-public-access-block --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "s3://ansar-lab-public",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/S3-02/s3://ansar-lab-public",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-S3-02",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "MEDIUM",
+      "Normalized": 40
+    },
+    "Title": "CIS 2.1.1 S3 bucket policy denies non-TLS (aws:SecureTransport=false)",
+    "Description": "S3 bucket policy denies non-TLS (aws:SecureTransport=false)",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Add a Deny statement with Condition Bool aws:SecureTransport=false."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "s3://ansar-lab-public",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/S3-03/s3://ansar-lab-public",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-S3-03",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "LOW",
+      "Normalized": 1
+    },
+    "Title": "CIS 2.1.2 S3 bucket versioning + MFA delete (versioning checked)",
+    "Description": "S3 bucket versioning + MFA delete (versioning checked)",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Enable bucket versioning."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "s3://ansar-lab-public",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/LOG-03/vpc-2ff7aa05e709554df",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-LOG-03",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "MEDIUM",
+      "Normalized": 40
+    },
+    "Title": "CIS 3.7 VPC flow logs enabled on every VPC",
+    "Description": "VPC flow logs enabled on every VPC",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "aws ec2 create-flow-logs --resource-type VPC ..."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "vpc-2ff7aa05e709554df",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/LOG-04/arn:aws:kms:ap-south-1:123456789012:key/9ca3c53d-c9c1-402a-ad2c-231cf5d7b5f3",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-LOG-04",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "MEDIUM",
+      "Normalized": 40
+    },
+    "Title": "CIS 3.6 Customer-managed KMS keys have rotation enabled",
+    "Description": "Customer-managed KMS keys have rotation enabled",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "aws kms enable-key-rotation --key-id ..."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "arn:aws:kms:ap-south-1:123456789012:key/9ca3c53d-c9c1-402a-ad2c-231cf5d7b5f3",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/NET-01/sg-29b7bd2115cb53437",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-NET-01",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "HIGH",
+      "Normalized": 70
+    },
+    "Title": "CIS 5.2 No security group allows 0.0.0.0/0 or ::/0 to admin ports 22/3389",
+    "Description": "tcp:22-22",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Restrict ingress to a bastion/VPN CIDR or use SSM Session Manager."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "sg-29b7bd2115cb53437",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/NET-02/sg-abea131aaa26bf9e9",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-NET-02",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "LOW",
+      "Normalized": 1
+    },
+    "Title": "CIS 5.4 Default security group restricts all traffic",
+    "Description": "Default security group restricts all traffic",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Remove all rules from each VPC's default SG."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "sg-abea131aaa26bf9e9",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/RDS-01/legacy-db",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-RDS-01",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "HIGH",
+      "Normalized": 70
+    },
+    "Title": "CIS 2.3.3 RDS instances not publicly accessible",
+    "Description": "RDS instances not publicly accessible",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Set PubliclyAccessible=false and place in private subnets."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "legacy-db",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "minicspm/RDS-02/legacy-db",
+    "ProductArn": "arn:aws:securityhub:ap-south-1:123456789012:product/123456789012/default",
+    "GeneratorId": "minicspm-RDS-02",
+    "AwsAccountId": "123456789012",
+    "Types": [
+      "Software and Configuration Checks/Industry and Regulatory Standards/CIS AWS Foundations Benchmark"
+    ],
+    "CreatedAt": "2026-10-11T10:11:32.303605Z",
+    "UpdatedAt": "2026-10-11T10:11:32.303605Z",
+    "Severity": {
+      "Label": "HIGH",
+      "Normalized": 70
+    },
+    "Title": "CIS 2.3.1 RDS storage encrypted",
+    "Description": "RDS storage encrypted",
+    "Remediation": {
+      "Recommendation": {
+        "Text": "Recreate from an encrypted snapshot copy."
+      }
+    },
+    "Resources": [
+      {
+        "Type": "Other",
+        "Id": "legacy-db",
+        "Region": "ap-south-1"
+      }
+    ],
+    "Compliance": {
+      "Status": "FAILED"
+    }
+  }
+]

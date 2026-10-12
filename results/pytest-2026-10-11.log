@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- .venv/bin/python3
+hypothesis profile 'default'
+rootdir: .
+configfile: pytest.ini
+plugins: schemathesis-4.30.1, anyio-4.15.1, hypothesis-6.169.0
+collecting ... collected 8 items
+
+tests/test_checks.py::test_registry_has_20_checks PASSED                 [ 12%]
+tests/test_checks.py::test_empty_account_flags_missing_baselines PASSED  [ 25%]
+tests/test_checks.py::test_sandbox_bad_and_good PASSED                   [ 37%]
+tests/test_checks.py::test_sg_rule_on_other_port_passes PASSED           [ 50%]
+tests/test_checks.py::test_sg_all_traffic_ipv6_fails PASSED              [ 62%]
+tests/test_checks.py::test_check_error_is_contained PASSED               [ 75%]
+tests/test_checks.py::test_asff_only_fails_and_valid_fields PASSED       [ 87%]
+tests/test_checks.py::test_cli_writes_outputs_and_fail_on PASSED         [100%]
+
+============================== 8 passed in 4.32s ===============================

@@ -1,0 +1,252 @@
+[
+  {
+    "check_id": "IAM-01",
+    "cis": "1.4",
+    "title": "No access keys for root user",
+    "severity": "CRITICAL",
+    "resource": "root",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "IAM-02",
+    "cis": "1.5",
+    "title": "MFA enabled for root user",
+    "severity": "CRITICAL",
+    "resource": "root",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Enable hardware/virtual MFA on root."
+  },
+  {
+    "check_id": "IAM-03",
+    "cis": "1.8",
+    "title": "Password policy min length >= 14",
+    "severity": "MEDIUM",
+    "resource": "password-policy",
+    "status": "PASS",
+    "detail": "min=14",
+    "remediation": ""
+  },
+  {
+    "check_id": "IAM-04",
+    "cis": "1.9",
+    "title": "Password policy prevents reuse (24)",
+    "severity": "LOW",
+    "resource": "password-policy",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "IAM-05",
+    "cis": "1.10",
+    "title": "MFA for IAM users with console password",
+    "severity": "HIGH",
+    "resource": "iam-user/alice",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Enable MFA for each console user."
+  },
+  {
+    "check_id": "IAM-06",
+    "cis": "1.14",
+    "title": "Access keys rotated within 90 days",
+    "severity": "MEDIUM",
+    "resource": "iam-user/alice/AKIARZPUZDIKBIHHFYDZ",
+    "status": "PASS",
+    "detail": "age=0d",
+    "remediation": ""
+  },
+  {
+    "check_id": "IAM-07",
+    "cis": "1.15",
+    "title": "IAM users get permissions only via groups (no attached/inline policies)",
+    "severity": "LOW",
+    "resource": "iam-user/alice",
+    "status": "FAIL",
+    "detail": "attached=1 inline=0",
+    "remediation": "Move user policies onto groups."
+  },
+  {
+    "check_id": "IAM-08",
+    "cis": "1.16",
+    "title": "No customer policy grants full '*:*' admin",
+    "severity": "HIGH",
+    "resource": "arn:aws:iam::123456789012:policy/god",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Replace Action:* Resource:* with least-privilege statements."
+  },
+  {
+    "check_id": "S3-01",
+    "cis": "2.1.4",
+    "title": "S3 bucket Block Public Access fully enabled",
+    "severity": "HIGH",
+    "resource": "s3://ansar-lab-public",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "aws s3api put-public-access-block --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
+  },
+  {
+    "check_id": "S3-01",
+    "cis": "2.1.4",
+    "title": "S3 bucket Block Public Access fully enabled",
+    "severity": "HIGH",
+    "resource": "s3://ansar-lab-logs",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "S3-02",
+    "cis": "2.1.1",
+    "title": "S3 bucket policy denies non-TLS (aws:SecureTransport=false)",
+    "severity": "MEDIUM",
+    "resource": "s3://ansar-lab-public",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Add a Deny statement with Condition Bool aws:SecureTransport=false."
+  },
+  {
+    "check_id": "S3-02",
+    "cis": "2.1.1",
+    "title": "S3 bucket policy denies non-TLS (aws:SecureTransport=false)",
+    "severity": "MEDIUM",
+    "resource": "s3://ansar-lab-logs",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "S3-03",
+    "cis": "2.1.2",
+    "title": "S3 bucket versioning + MFA delete (versioning checked)",
+    "severity": "LOW",
+    "resource": "s3://ansar-lab-public",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Enable bucket versioning."
+  },
+  {
+    "check_id": "S3-03",
+    "cis": "2.1.2",
+    "title": "S3 bucket versioning + MFA delete (versioning checked)",
+    "severity": "LOW",
+    "resource": "s3://ansar-lab-logs",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "LOG-01",
+    "cis": "3.1",
+    "title": "Multi-region CloudTrail trail is logging",
+    "severity": "HIGH",
+    "resource": "cloudtrail",
+    "status": "PASS",
+    "detail": "trails=1",
+    "remediation": ""
+  },
+  {
+    "check_id": "LOG-02",
+    "cis": "3.2",
+    "title": "CloudTrail log file validation enabled",
+    "severity": "MEDIUM",
+    "resource": "arn:aws:cloudtrail:ap-south-1:123456789012:trail/org-trail",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "LOG-03",
+    "cis": "3.7",
+    "title": "VPC flow logs enabled on every VPC",
+    "severity": "MEDIUM",
+    "resource": "vpc-2ff7aa05e709554df",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "aws ec2 create-flow-logs --resource-type VPC ..."
+  },
+  {
+    "check_id": "LOG-04",
+    "cis": "3.6",
+    "title": "Customer-managed KMS keys have rotation enabled",
+    "severity": "MEDIUM",
+    "resource": "arn:aws:kms:ap-south-1:123456789012:key/9ca3c53d-c9c1-402a-ad2c-231cf5d7b5f3",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "aws kms enable-key-rotation --key-id ..."
+  },
+  {
+    "check_id": "LOG-04",
+    "cis": "3.6",
+    "title": "Customer-managed KMS keys have rotation enabled",
+    "severity": "MEDIUM",
+    "resource": "arn:aws:kms:ap-south-1:123456789012:key/a5601e74-1d88-4b92-b01a-75ff23ffde94",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "NET-01",
+    "cis": "5.2",
+    "title": "No security group allows 0.0.0.0/0 or ::/0 to admin ports 22/3389",
+    "severity": "HIGH",
+    "resource": "sg-abea131aaa26bf9e9",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "NET-01",
+    "cis": "5.2",
+    "title": "No security group allows 0.0.0.0/0 or ::/0 to admin ports 22/3389",
+    "severity": "HIGH",
+    "resource": "sg-29b7bd2115cb53437",
+    "status": "FAIL",
+    "detail": "tcp:22-22",
+    "remediation": "Restrict ingress to a bastion/VPN CIDR or use SSM Session Manager."
+  },
+  {
+    "check_id": "NET-02",
+    "cis": "5.4",
+    "title": "Default security group restricts all traffic",
+    "severity": "LOW",
+    "resource": "sg-abea131aaa26bf9e9",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Remove all rules from each VPC's default SG."
+  },
+  {
+    "check_id": "EC2-01",
+    "cis": "2.2.1",
+    "title": "EBS default encryption enabled in region",
+    "severity": "MEDIUM",
+    "resource": "ebs-default/ap-south-1",
+    "status": "PASS",
+    "detail": "",
+    "remediation": ""
+  },
+  {
+    "check_id": "RDS-01",
+    "cis": "2.3.3",
+    "title": "RDS instances not publicly accessible",
+    "severity": "HIGH",
+    "resource": "legacy-db",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Set PubliclyAccessible=false and place in private subnets."
+  },
+  {
+    "check_id": "RDS-02",
+    "cis": "2.3.1",
+    "title": "RDS storage encrypted",
+    "severity": "HIGH",
+    "resource": "legacy-db",
+    "status": "FAIL",
+    "detail": "",
+    "remediation": "Recreate from an encrypted snapshot copy."
+  }
+]
