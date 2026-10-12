@@ -1,0 +1,20 @@
+name: ci
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -q
+      - name: Scan moto sandbox (no AWS creds needed)
+        run: python -m minicspm.demo --out out
+      - uses: actions/upload-artifact@v4
+        with: {name: minicspm-report, path: out/}
+  # Real-account scan: enable once an OIDC role with scanner-iam-policy.json exists.
+  # scan-real:
+  #   permissions: {id-token: write, contents: read}
+  #   steps: aws-actions/configure-aws-credentials@v4 (role-to-assume) -> python -m minicspm.cli --fail-on HIGH
