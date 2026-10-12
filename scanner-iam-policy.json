@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Sid": "MiniCSPMReadOnly",
+    "Effect": "Allow",
+    "Action": [
+      "sts:GetCallerIdentity",
+      "iam:GetAccountSummary", "iam:GetAccountPasswordPolicy", "iam:ListUsers", "iam:GetLoginProfile",
+      "iam:ListMFADevices", "iam:ListAccessKeys", "iam:ListAttachedUserPolicies", "iam:ListUserPolicies",
+      "iam:ListPolicies", "iam:GetPolicyVersion",
+      "s3:ListAllMyBuckets", "s3:GetBucketPublicAccessBlock", "s3:GetBucketPolicy", "s3:GetBucketVersioning",
+      "cloudtrail:DescribeTrails", "cloudtrail:GetTrailStatus",
+      "ec2:DescribeVpcs", "ec2:DescribeFlowLogs", "ec2:DescribeSecurityGroups", "ec2:GetEbsEncryptionByDefault",
+      "kms:ListKeys", "kms:DescribeKey", "kms:GetKeyRotationStatus",
+      "rds:DescribeDBInstances"
+    ],
+    "Resource": "*"
+  }]
+}
